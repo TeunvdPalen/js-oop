@@ -13,14 +13,18 @@
 		"use strict";
 
 		function som() {
-			let lengte = arguments.length;
-			for (let i = 0; i < som.length; i++) {
-				let totaal = totaal + som[i];
+			let totaal = 0;
+			const reg = new RegExp('^\d+$')
+
+			for (let i = 0; i < arguments.length; i++) {
+				if (reg == search.arguments[i]) {
+					totaal += arguments[i];
+				}
 			}
+			console.log(totaal)
 		}
 
-		som(4, 8, 15);
-		console.log(som)
+		som(4, 8, 15)
 
 	</script>
 </body>

@@ -10,6 +10,18 @@
 
 <body>
 
+    <script>
+        function functieMetTweeArgumenten() {
+            let totaal = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                totaal += arguments[i];
+            }
+            console.log(`${totaal}`)
+        }
+
+        functieMetTweeArgumenten(5, 8, 4, 2);
+    </script>
+
 </body>
 
 </html>
