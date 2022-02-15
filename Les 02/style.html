@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Style</title>
+		<style>
+			.groen {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="info" style="color: green">Hier vind je alle informatie over mij.</p>
+		<p id="eersteP" class="vet, groen">Welkom op mijn <strong>site</strong>.</p>
+
+		<script>
+			let kleur1 = document.getElementById("info").style.color;
+			console.log(`kleur1: ${kleur1}`);
+			//kleur1: green
+
+			let kleur2 = window.getComputedStyle(document.getElementById("eersteP")).color;
+			console.log(`kleur2: ${kleur2}`);
+			//kleur2: rgb(255, 238, 51)
+
+			document.getElementById("eersteP").style.color = "red";
+		</script>
+	</body>
+</html>
