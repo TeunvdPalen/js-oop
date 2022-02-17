@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nodes oefening</title>
+	</head>
+	<body>
+		<h1>Welkom</h1>
+		<a href="http://www.google.be" class="contentLinks">click mij</a>
+		<p id="eersteP" class="vet">Welkom op mijn <strong>site</strong>.</p>
+		<p>Hier vind je alle informatie over mij.</p>
+		<a href="http://www.hbvl.be" class="contentLinks">www.hbvl.be</a>
+		<p class="vet">En nog een vette tekst.</p>
+
+		<div id="content">
+			<h2>Links op mijn site</h2>
+			<p>
+				<a href="cv.html">Bekijk mijn <strong>CV</strong>.</a>
+			</p>
+			<p>
+				<a href="portfolio.html">Wil je mijn <strong>portfolio</strong> eens zien?</a>
+			</p>
+		</div>
+
+		<script>
+			"use strict";
+			let allelinks = document.getElementsByTagName("a");
+			for (let index = 0; index < allelinks.length; index++) {
+				console.log(allelinks[index].innerHTML);
+			}
+
+			let content = document.getElementById("content");
+			console.log(content);
+			console.log(content.innerHTML);
+			console.log(content.innerText);
+
+			let links = document.getElementsByClassName("contentLinks");
+			for (let index = 0; index < links.length; index++) {
+				console.log(links[index].getAttribute("href"));
+				links[index].setAttribute("href", "#");
+				console.log(links[index].getAttribute("href"));
+			}
+
+			document.getElementsByClassName("contentLinks")[0].style.color = "green";
+		</script>
+	</body>
+</html>

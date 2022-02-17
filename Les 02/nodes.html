@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nodes</title>
+		<style>
+			.groen {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Welkom</h1>
+		<a href="http://www.google.be" class="contentLinks">click mij</a>
+		<p id="eersteP" class="vet">Welkom op mijn <strong>site</strong>.</p>
+		<p>Hier vind je alle informatie over mij.</p>
+		<a href="http://www.hbvl.be" class="contentLinks">www.hbvl.be</a>
+		<p class="vet">En nog een vette tekst.</p>
+
+		<script>
+			"use strict";
+			let eersteLink = document.getElementsByTagName("a")[0];
+			console.log(eersteLink);
+			//<a href="http://www.google.be">click mij</a>
+			console.log(eersteLink.href);
+			//http://www.google.be
+
+			let paragraaf = document.getElementById("eersteP");
+			console.log(paragraaf);
+			//<p id="eersteP">…</p>
+			console.log(paragraaf.innerHTML);
+			//Welkom op mijn <strong>site</strong>.
+			console.log(paragraaf.innerText);
+			//Welkom op mijn site.
+
+			let vetClass = document.getElementsByClassName("vet");
+			console.log(vetClass); //HTMLCollection
+
+			let vetClass2 = document.getElementsByClassName("vet")[1];
+			console.log(vetClass2);
+			//<p class="vet">En nog een vette tekst.</p>
+			console.log(vetClass2.innerText);
+			//En nog een vette tekst.
+
+			document.getElementsByTagName("h1")[0].setAttribute("class", "groen");
+			document.getElementById("eersteP").setAttribute("class", "groen");
+
+			document.getElementsByTagName("a")[0].setAttribute("target", "_blank");
+			console.log(document.getElementsByTagName("a")[0].getAttribute("target"));
+			//_blank
+
+			document.getElementsByTagName("p")[0].removeAttribute("class");
+		</script>
+	</body>
+</html>
