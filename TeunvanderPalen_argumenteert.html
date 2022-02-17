@@ -14,17 +14,19 @@
 
 		function som() {
 			let totaal = 0;
-			const reg = new RegExp('^\d+$')
+			const reg = /^\d+$/
 
 			for (let i = 0; i < arguments.length; i++) {
-				if (reg == search.arguments[i]) {
+				if (reg.test(arguments[i]) == true) {
 					totaal += arguments[i];
 				}
 			}
 			console.log(totaal)
 		}
 
-		som(4, 8, 15)
+		som(2, 4)
+		som(4, 8, 15, 'jan')
+		som('anna', 9, 10, 5, 'bert', 'peter', 9, 8)
 
 	</script>
 </body>
