@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let cdCollectie = [
+				[
+					"The Black Album",
+					"Metallica",
+					"Enter Sandman",
+					"Sad But True",
+					"Holier Than Thou",
+					"The Unforgiven",
+					"Wherever I May Roam",
+					"Dont Tread On Me",
+					"Through The Never",
+					"Nothing Else Matters",
+					"Of Wolf And Man",
+					"The God That Failed",
+					"My Friend Of Misery",
+					"The Struggle Within",
+				],
+				[
+					"Homework",
+					"Daft Punk",
+					"Daftendirekt",
+					"WDPK 83.7 FM",
+					"Revolution 909",
+					"Da Funk",
+					"Phœnix",
+					"Fresh",
+					"Around the World",
+					"Rollin' & Scratchin'",
+					"Teachers",
+					"High Fidelity",
+					"Rock'n Roll",
+					"Oh Yeah",
+					"Burnin'",
+					"Indo Silver Club",
+					"Alive",
+					"Funk Ad",
+				],
+				,
+				// 				Pas op
+				// We voegen een extra cd bij:
+				[
+					"The Dark Side of the Moon",
+					"Pink Floyd",
+					"Speak to Me",
+					"Breathe",
+					"On the Run",
+					"Time",
+					"The Great Gig in the Sky",
+					"Money",
+					"Us and Them",
+					"Any Colour You Like",
+					"Brain Damage",
+					"Eclipse",
+				],
+				// Maar dit geeft
+				// totaalAantalNummers: NaN
+				// omdat totaal.lenght de éde keer een nummer is
+				//
+				//
+			]; // initieel 12 + 16 nummers
+
+			function telNummers(totaal, album) {
+				return totaal.length - 2 + album.length - 2;
+				//eerste 2 items zijn albumtitel en uitvoerder
+				//dus die moeten we aftrekken van de lengte
+			}
+			let totaalAantalNummers = cdCollectie.reduce(telNummers);
+			console.log(`totaalAantalNummers: ${totaalAantalNummers}`);
+
+			// Oplossing extra CD
+			function telNummers2(totaal, album) {
+				return totaal + album.length - 2;
+			}
+			let totaalAantalNummers2 = cdCollectie.reduce(telNummers2, 0);
+			console.log(`totaalAantalNummers2:${totaalAantalNummers2}`);
+			//38
+
+			// Alles ummers opvragen
+			function getAparteNummers(alleNummers, album) {
+				return alleNummers.concat(album.slice(2, album.length));
+			}
+			//nieuwe array maken voor al de nummers, dus een lege array doorgeven als initialValue
+			let alleAparteNummers = cdCollectie.reduce(getAparteNummers, []);
+			console.log(alleAparteNummers);
+		</script>
+	</body>
+</html>

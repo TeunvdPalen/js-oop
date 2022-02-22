@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Arrays overlopen</title>
+	</head>
+	<body>
+		<script>
+			let designVakken = ["HTML&CSS", "Photoshop", "Interface", "Drupal"];
+			console.log(designVakken);
+			let ontwikkelingVakken = ["Workflows", "Javascript", "jQuery", "PHP"];
+			console.log(ontwikkelingVakken);
+
+			let alleVakken = designVakken.concat(ontwikkelingVakken);
+			console.log(alleVakken);
+
+			let puurProgrammeren = ontwikkelingVakken.slice(1, ontwikkelingVakken.length);
+			console.log(puurProgrammeren);
+
+			let afdelingVakken = alleVakken.map(function (e) {
+				return "FeDev - " + e;
+			});
+			console.log(afdelingVakken);
+
+			ontwikkelingVakken.splice(ontwikkelingVakken.length, 0, "JS-OOP", "PHP-OOP");
+			console.log(ontwikkelingVakken);
+
+			alleVakken.push("JS-OOP", "PHP-OOP");
+			console.log(alleVakken);
+
+			alleVakken.unshift("Illustrator");
+			console.log(alleVakken);
+
+			alleVakken.shift("Illustrator");
+			console.log(alleVakken);
+
+			function aantalVakkenBerekenen(totaal, vakken) {
+				return totaal + 1;
+			}
+			let aantalVakken = alleVakken.reduce(aantalVakkenBerekenen, 0);
+			console.log(aantalVakken);
+
+			let punten = [87, 93, 75, 81, 74, 85, 92, 91, 67, 65];
+
+			function puntenPerVak(totaal, vakken, index) {
+				return totaal.concat(punten[index] + " - " + vakken);
+			}
+			let vakkenEnPunten = alleVakken.reduce(puntenPerVak, [], alleVakken);
+			console.log(vakkenEnPunten);
+		</script>
+	</body>
+</html>

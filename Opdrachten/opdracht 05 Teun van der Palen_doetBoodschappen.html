@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Boodschappen</title>
+	</head>
+	<body>
+		<script>
+			let boodschappen = [];
+			boodschappen.push(
+				["bruin boerenbrood", 2, "besteld"],
+				["bio halfvolle melk", 1, "besteld"],
+				["plat water", 6, "besteld"]
+			);
+			console.log(boodschappen);
+
+			boodschappen[0][2] = "geleverd";
+			boodschappen[1][2] = "nabesteld";
+			boodschappen[2][2] = "geleverd";
+			console.log(boodschappen);
+
+			let inhoud = ["400g", "1l", "1,5l"];
+			boodschappen.forEach((element, i) => {
+				element.splice(2, 0, inhoud[i]);
+				console.log(element[0] + " - aantal: " + element[1] + " - inhoud: " + element[2] + " - status: " + element[3]);
+			});
+		</script>
+	</body>
+</html>

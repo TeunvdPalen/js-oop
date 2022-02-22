@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 	Brengt al de waardes van een array terug tot 1 waarde, het resultaat/totaal
+			// Letterlijk vertaald: herleidt tot
+			// Past de array niet aan
+			// Via extra functie wordt gedefinieerd wat er met waardes moet gebeuren
+
+			let myArray1 = [1, 2, 3, 4];
+			let som = 0;
+			let lengte = myArray1.length;
+			for (let i = 0; i < lengte; i++) {
+				som += myArray1[i];
+			}
+			console.log(`som: ${som}`);
+			// array.reduce(function(totaal, huidigeWaarde, huidigeIndex, array), initiëleWaarde)
+			// 	totaal: initiële waarde of de vorige gereturnde waarde van de functie (vereist)
+			// 	huidigeWaarde: waarde van het huidige element uit de array (vereist)
+			// 	huidigeIndex : index van het huidig element (optioneel)
+			// 	array: de array waartoe het huidige element behoort (optioneel)
+			// 	initiëleWaarde: waarde die doorgegeven wordt bij starten van functie (optioneel)
+
+			// Standaard is totaal bij het starten van functie de eerste waarde uit de array
+
+			// ----- VOORBEELD 1 -----
+			console.log(" ----- Voorbeeld 1 -----");
+			let myArray2 = [1, 2, 3, 4];
+
+			function telOp(totaal, huidigeWaarde) {
+				console.log(`${totaal} - ${huidigeWaarde}`);
+				return totaal + huidigeWaarde;
+			}
+
+			let totaal1 = myArray2.reduce(telOp);
+			console.log(`totaal1: ${totaal1}`); //10
+			console.log(`myArray2: ${myArray2}`); //1,2,3,4
+
+			//
+			// ----- VOORBEELD 2 -----
+			console.log(" ----- Voorbeeld 2 -----");
+			let myArray3 = ["a", "b", "c", "d"];
+
+			function telOp(totaal, huidigeWaarde) {
+				console.log(`${totaal} - ${huidigeWaarde}`);
+				return totaal + huidigeWaarde;
+			}
+
+			let totaal2 = myArray3.reduce(telOp);
+			console.log(`totaal2: ${totaal2}`);
+			console.log(`myArray3: ${myArray3}`);
+
+			//
+			// ----- VOORBEELD 3 -----
+			console.log(" ----- Voorbeeld 3 -----");
+			let myArray4 = [1, 2, 3, 4];
+			let vermenigvuldig = myArray4.reduce(function vermenigvuldig(totaal, huidigeWaarde) {
+				console.log(`${totaal} - ${huidigeWaarde}`);
+				return totaal * huidigeWaarde;
+			});
+
+			console.log(`vermenigvuldig: ${vermenigvuldig}`); //24
+			console.log(`myArray4: ${myArray4}`); //1,2,3,4
+
+			//
+			// ----- VOORBEELD 4 -----
+			console.log(" ----- Voorbeeld 4 -----");
+			let semester1 = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun"];
+			let semester2 = ["Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
+			let totaleJaar = semester1.concat(semester2);
+			console.log(totaleJaar);
+
+			function telMaanden(totaal, maanden) {
+				return totaal + 1;
+			}
+
+			let totaalAantalMaanden = totaleJaar.reduce(telMaanden, 0);
+			console.log(totaalAantalMaanden);
+		</script>
+	</body>
+</html>
