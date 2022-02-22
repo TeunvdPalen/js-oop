@@ -37,13 +37,19 @@
 		document.title = "Opdracht van Teun van der Palen"
 
 		let hyperlinks = document.getElementsByTagName('a')
-		console.log(hyperlinks)
+
 		for (let i = 0; i < hyperlinks.length; i++) {
-			console.log(hyperlinks[i]);
 			hyperlinks[i].target = "_blank";
 			hyperlinks[i].style.border = "1px solid red";
 			hyperlinks[i].style.padding = "5px";
+
+			let parent = hyperlinks[i].parentNode;
+			let linkTekst = document.createTextNode("Links: ");
+			parent.insertBefore(linkTekst, hyperlinks[i]);
 		}
+
+
+
 	</script>
 </body>
 

@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Arrays overlopen</title>
-	</head>
-	<body>
-		<script>
-			let designVakken = ["HTML&CSS", "Photoshop", "Interface", "Drupal"];
-			console.log(designVakken);
-			let ontwikkelingVakken = ["Workflows", "Javascript", "jQuery", "PHP"];
-			console.log(ontwikkelingVakken);
 
-			let alleVakken = designVakken.concat(ontwikkelingVakken);
-			console.log(alleVakken);
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Arrays overlopen</title>
+</head>
 
-			let puurProgrammeren = ontwikkelingVakken.slice(1, ontwikkelingVakken.length);
-			console.log(puurProgrammeren);
+<body>
+	<script>
+		let designVakken = ["HTML&CSS", "Photoshop", "Interface", "Drupal"];
+		console.log(designVakken);
+		let ontwikkelingVakken = ["Workflows", "Javascript", "jQuery", "PHP"];
+		console.log(ontwikkelingVakken);
 
-			let afdelingVakken = alleVakken.map(function (e) {
-				return "FeDev - " + e;
-			});
-			console.log(afdelingVakken);
+		let alleVakken = designVakken.concat(ontwikkelingVakken);
+		console.log(alleVakken);
 
-			ontwikkelingVakken.splice(ontwikkelingVakken.length, 0, "JS-OOP", "PHP-OOP");
-			console.log(ontwikkelingVakken);
+		let puurProgrammeren = ontwikkelingVakken.slice(1, ontwikkelingVakken.length);
+		console.log(puurProgrammeren);
 
-			alleVakken.push("JS-OOP", "PHP-OOP");
-			console.log(alleVakken);
+		let afdelingVakken = alleVakken.map(function (e) {
+			return "FeDev - " + e;
+		});
+		console.log(afdelingVakken);
 
-			alleVakken.unshift("Illustrator");
-			console.log(alleVakken);
+		ontwikkelingVakken.splice(ontwikkelingVakken.length, 0, "JS-OOP", "PHP-OOP");
+		console.log(ontwikkelingVakken);
 
-			alleVakken.shift("Illustrator");
-			console.log(alleVakken);
+		alleVakken.push("JS-OOP", "PHP-OOP");
+		console.log(alleVakken);
 
-			function aantalVakkenBerekenen(totaal, vakken) {
-				return totaal + 1;
-			}
-			let aantalVakken = alleVakken.reduce(aantalVakkenBerekenen, 0);
-			console.log(aantalVakken);
+		alleVakken.unshift("Illustrator");
+		console.log(alleVakken);
 
-			let punten = [87, 93, 75, 81, 74, 85, 92, 91, 67, 65];
+		alleVakken.shift("Illustrator");
+		console.log(alleVakken);
 
-			function puntenPerVak(totaal, vakken, index) {
-				return totaal.concat(punten[index] + " - " + vakken);
-			}
-			let vakkenEnPunten = alleVakken.reduce(puntenPerVak, [], alleVakken);
-			console.log(vakkenEnPunten);
-		</script>
-	</body>
+		function aantalVakkenBerekenen(totaal, vakken) {
+			return totaal + 1;
+		}
+		let aantalVakken = alleVakken.reduce(aantalVakkenBerekenen, 0);
+		console.log(aantalVakken);
+
+		let punten = [87, 93, 75, 81, 74, 85, 92, 91, 67, 65];
+
+		function puntenPerVak(totaal, vakken, index) {
+			return totaal.concat(punten[index] + " - " + vakken);
+		}
+		let vakkenEnPunten = alleVakken.reduce(puntenPerVak, []);
+		console.log(vakkenEnPunten);
+	</script>
+</body>
+
 </html>
