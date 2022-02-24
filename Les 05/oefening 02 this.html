@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      width: 300px;
+    }
+
+    #rood {
+      width: 75px;
+      height: 100px;
+      background-color: red;
+      float: left;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    #onder {
+      width: 300px;
+      height: 300px;
+      background-color: lightgrey;
+      clear: both;
+      padding: 50px;
+      color: white;
+    }
+  </style>
+  <script>
+    let divRood;
+    let divOnder;
+    window.addEventListener("DOMContentLoaded", start)
+
+    function start() {
+      divRood = document.getElementById('rood')
+      divOnder = document.getElementById('onder')
+
+      divRood.addEventListener('mouseover', rood)
+      divRood.addEventListener('mouseout', lightGrey)
+    }
+
+    function rood() {
+      divOnder.style.backgroundColor = 'red';
+      divOnder.innerHTML = this.innerHTML;
+    }
+
+    function lightGrey() {
+      divOnder.style.backgroundColor = 'lightgrey';
+      divOnder.innerHTML = '';
+    }
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="rood">Rood</div>
+    <div id="onder"></div>
+  </div>
+</body>
+
+</html>
