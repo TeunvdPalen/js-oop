@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Image gallery</title>
+		<link rel="stylesheet" type="text/css" href="gallery.css" />
+	</head>
+
+	<body>
+		<p><img id="largeImg" src="550x400/ipad.jpg" alt="Large image" /></p>
+		<div id="thumbs">
+			<a href="550x400/ipad.jpg" title="ipad"><img src="200x150/ipad.jpg" /></a>
+		</div>
+
+		<script>
+			window.addEventListener("DOMContentLoaded", function () {});
+			function addParagraaf() {
+				let link = document.createElement("a");
+				let img = document.createElement("img");
+				link.href = "550x400/....jpg";
+				link.title = "...";
+				img.src = "200x150/....jpg";
+				link.appendChild(img);
+				document.thumbs.appendChild(link, document.getElementById("thumbs").lastChild);
+			}
+		</script>
+	</body>
+</html>
