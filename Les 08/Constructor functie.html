@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Construcir functie</title>
+	</head>
+	<body>
+		<script>
+			function Car(type, model, color) {
+				this.carType = type;
+				this.carModel = model;
+				this.carColor = color;
+			}
+			let myCar = new Car("Fiat", "500", "White");
+			console.log(myCar);
+
+			let myVolvo = new Car("Volvo", "v90", "black");
+			console.log(myVolvo);
+
+			myVolvo.carModel = "V80";
+			console.log(myVolvo.carModel);
+
+			// controleren of een object een instantie is van bepaalde constructor functie
+			console.log(`myCar instanceof Car:  ${myCar instanceof Car}`); //true;
+			// Het is dus een instantie van de Car constructor functie
+		</script>
+	</body>
+</html>

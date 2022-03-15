@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Boek</title>
+	</head>
+	<body>
+		<script>
+			function Boek(titel, jaar, publisher) {
+				this.boekTitel = titel;
+				this.boekJaar = jaar;
+				this.boekPublisher = publisher;
+				this.writeBoek = () => {
+					document.write(`<p>Titel: ${titel}</p>`);
+					document.write(`<p>Jaartal: ${jaar}</p>`);
+					document.write(`<p>Publisher: ${publisher}</p>`);
+				};
+			}
+
+			let mijnEersteJavaScriptBoek = new Boek("JavaScript, the right way", 2012, "jstherightway.com");
+			console.log(`Is het een constructor functie? ${mijnEersteJavaScriptBoek instanceof Boek}`);
+			console.log(mijnEersteJavaScriptBoek);
+			mijnEersteJavaScriptBoek.writeBoek();
+		</script>
+	</body>
+</html>

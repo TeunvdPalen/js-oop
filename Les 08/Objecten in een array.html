@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Objecten in een array</title>
+	</head>
+	<body>
+		<script>
+			function Hond(naam, ras, geluid) {
+				this.naam = naam;
+				this.ras = ras;
+				this.geluid = geluid;
+				this.blaf = function () {
+					console.log(this.geluid);
+				};
+			}
+
+			let alleHonden = [];
+
+			let snoopy = new Hond("Snoopy", "Beagle", "woef-woef");
+			alleHonden.push(snoopy);
+
+			let amber = new Hond("Amber", "Chihuahua", "wif wif");
+			alleHonden.push(amber);
+			alleHonden[1].blaf();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Golf</title>
+	</head>
+	<body>
+		<script>
+			let alleResultaten = [];
+
+			function Resultaat(golfbaan, datum, hole, par, strokes) {
+				this.golfbaanWaarde = golfbaan;
+				this.datumWaarde = datum;
+				this.holeWaarde = hole;
+				this.parWaarde = par;
+				this.strokesWaarde = strokes;
+				this.setScore = function (toon1) {
+					if (strokes == 1) {
+						toon1.value = "Hole in one!!!";
+					} else if (strokes <= par - 2) {
+						toon1.value = "Eagle!!";
+					} else if (strokes <= par - 1) {
+						toon1.value = "Birdie!";
+					} else if (strokes == par) {
+						toon1.value = "Par";
+					} else if (strokes == par + 1) {
+						toon1.value = "Bogey";
+					} else if (strokes == par + 2) {
+						toon1.value = "Double Bogey";
+					} else if (strokes >= par + 2) {
+						toon1.value = "No score";
+					}
+				};
+			}
+		</script>
+	</body>
+</html>

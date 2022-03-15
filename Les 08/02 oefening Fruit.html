@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fruit</title>
+	</head>
+	<body>
+		<script>
+			function Fruit(naam, kleur, zoetheid, origine) {
+				this.fruitNaam = naam;
+				this.fruitKleur = kleur;
+				this.fruitZoetheid = zoetheid;
+				this.fruitOrigine = origine;
+				this.toonGegevens = () => {
+					document.write(`<p>De ${naam} is ${kleur} van kleur, is ${zoetheid} zoet en komt uit ${origine}</p>`);
+				};
+			}
+
+			let banaan = new Fruit("banaan", "geel", "gemiddeld", "afrika");
+			banaan.toonGegevens();
+		</script>
+	</body>
+</html>
