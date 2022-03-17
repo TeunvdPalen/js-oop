@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		html,
+		body {
+			height: 100%;
+		}
+
+		#hex {
+			color: white;
+			font: 64px/64px Verdana;
+			height: 64px;
+			/*Vertical center*/
+			position: relative;
+			top: 50%;
+			margin-top: -32px;
+			/*Horizontal center*/
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="hex"></div>
+	<label>Dag: <input id="dag" size="2"></label>
+	<label>Maand: <input id="maand" size="2"></label>
+	<label>Jaartal: <input id="jaartal" size="2"></label>
+	<input type="button" id="myBtn" value="Toon de kleur van je geboorte">
+
+	<script type="text/javascript">
+		"use strict";
+		let geboortekleur = {
+			dag: '',
+			maand: '',
+			jaar: '',
+			toonKleur(kleur) {
+				document.getElementById("hex").innerHTML = kleur;
+				document.body.style.backgroundColor = kleur;
+			}
+		}
+
+		function singleValue(value) {
+			if (value < 10) {
+				value = `0${value}`;
+			}
+			return value;
+		}
+
+		window.addEventListener("DOMContentLoaded", function () {
+			document.getElementById('myBtn').addEventListener("click", displayGeboorteKleur)
+		});
+
+		function displayGeboorteKleur(e) {
+			geboortekleur.dag = document.getElementById('dag').value
+			geboortekleur.maand = document.getElementById('maand').value
+			geboortekleur.jaar = document.getElementById('jaartal').value
+
+			geboortekleur.dag = singleValue(geboortekleur.dag)
+			geboortekleur.maand = singleValue(geboortekleur.maand)
+			geboortekleur.jaar = singleValue(geboortekleur.jaar)
+
+			let kleur = '#' + geboortekleur.dag + geboortekleur.maand + geboortekleur.jaar;
+			geboortekleur.toonKleur(kleur)
+		};
+
+	</script>
+</body>
+
+</html>

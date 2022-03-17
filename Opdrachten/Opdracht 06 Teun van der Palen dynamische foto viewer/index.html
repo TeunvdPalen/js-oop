@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Image gallery</title>
+	<link rel="stylesheet" type="text/css" href="gallery.css" />
+	<style>
+		body {
+			background-color: rgb(41, 40, 40);
+		}
+	</style>
+</head>
+
+<body>
+	<p><img id="largeImg" src="550x400/ipad.jpg" alt="Large image" /></p>
+	<div id="thumbs">
+		<a href="550x400/ipad.jpg" title="ipad"><img src="200x150/ipad.jpg" /></a>
+	</div>
+	<div>
+		<button onClick="addPicture()">Voeg een afbeelding toe</button>
+	</div>
+
+	<script>
+		let largeImg = document.getElementById("largeImg")
+		let bestandsnamen = ['ipad.jpg', 'dj.jpg', 'ubuntu.jpg', 'electronica.jpg'];
+		let arrayTeller = 0
+
+		window.addEventListener("DOMContentLoaded", function () {
+			document.getElementById('thumbs').addEventListener("click", function (e) {
+				e.preventDefault();
+				let bigImg = e.target.getAttribute('src').slice(8, -4);
+				largeImg.src = "550x400/" + bigImg + ".jpg"
+				largeImg.alt = "Large image " + bigImg
+			});
+		});
+
+		function addPicture() {
+			if (arrayTeller == 3) {
+				arrayTeller = 0
+			} else {
+				arrayTeller += 1;
+			}
+			let link = document.createElement("a");
+			let img = document.createElement("img");
+			link.href = "550x400/" + bestandsnamen[arrayTeller];
+			link.title = bestandsnamen[arrayTeller].slice(0, -4);
+			img.src = "200x150/" + bestandsnamen[arrayTeller];
+			img.alt = bestandsnamen[arrayTeller].slice(0, -4);
+			link.appendChild(img);
+			document.getElementById("thumbs").appendChild(link, document.getElementById("thumbs").lastChild);
+		}
+	</script>
+</body>
+
+</html>
