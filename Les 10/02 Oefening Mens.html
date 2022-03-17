@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oefening mens</title>
+</head>
+
+<body>
+  <script>
+    function Mens(naam, leeftijd, heeftComputer) {
+      this.naam = naam;
+      this.leeftijd = leeftijd;
+      this.heeftComputer = heeftComputer || false;
+    }
+
+    Mens.prototype.toonGegevens = function () {
+      console.log(this.naam, this.leeftijd, this.heeftComputer)
+    }
+
+    let persoon = new Mens('jan', 32)
+    persoon.toonGegevens()
+    jan.heeftComputer = true;
+    persoon.toonGegevens()
+  </script>
+</body>
+
+</html>

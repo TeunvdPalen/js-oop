@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oefening prototype</title>
+</head>
+
+<body>
+  <script>
+    function Persoon(voornaam, achternaam) {
+      this.voornaam = voornaam;
+      this.achternaam = achternaam;
+    }
+
+    Persoon.prototype.getInitials = function () {
+      return `${this.voornaam.charAt(0)} ${this.achternaam.charAt(0)}`;
+    }
+
+    let muzikant = new Persoon('Jim', 'Jones')
+    document.write(muzikant.getInitials())
+  </script>
+</body>
+
+</html>

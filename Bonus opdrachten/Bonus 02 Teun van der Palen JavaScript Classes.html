@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Classes</title>
+</head>
+
+<body>
+  <form id="myForm">
+    R: <input type="text" id="kleurRIn" maxlength="3" size="3" /> G:
+    <input type="text" id="kleurGIn" maxlength="3" size="3" /> B:
+    <input type="text" id="kleurBIn" maxlength="3" size="3" />
+    <input type="button" id="bereken" value="Bereken de kleur" />
+    <input type="text" id="hexWaardeOut" />
+  </form>
+  <script>
+    let kleurRIn, kleurGIn, kleurBIn;
+
+    window.addEventListener("DOMContentLoaded", function () {
+      kleurRIn = document.getElementById("kleurRIn");
+      kleurGIn = document.getElementById("kleurGIn");
+      kleurBIn = document.getElementById("kleurBIn");
+      hexOut = document.getElementById("hexWaardeOut");
+      body = document.body;
+
+      document.getElementById("bereken").addEventListener("click", berekenKleur);
+    });
+
+    class KleurHex {
+      constructor(r, g, b) {
+        this.Rwaarde = parseInt(r);
+        this.Gwaarde = parseInt(g);
+        this.Bwaarde = parseInt(b);
+
+      }
+      HexString(toon1, bgc) {
+        this.hexWaardeOut = (
+          dubbelGetal(this.Rwaarde.toString(16)) +
+          dubbelGetal(this.Gwaarde.toString(16)) +
+          dubbelGetal(this.Bwaarde.toString(16))
+        ).toUpperCase();
+        toon1.value = `#${this.hexWaardeOut}`;
+        bgc.style.background = `#${this.hexWaardeOut}`;
+      }
+    }
+
+
+
+    function dubbelGetal(e) {
+      if (e.length < 2) {
+        e = 0 + e;
+      }
+      return e;
+    }
+
+    function berekenKleur() {
+      let hexR = kleurRIn.value;
+      let hexG = kleurGIn.value;
+      let hexB = kleurBIn.value;
+
+      let mijnKleurHex = new KleurHex(hexR, hexG, hexB);
+      mijnKleurHex.HexString(hexOut, body);
+    }
+  </script>
+</body>
+
+</html>
