@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Promise1</title>
+	</head>
+	<body>
+		<script>
+			// Dit is een voorbeeld template
+			let mijnPromise = new Promise(function (resolve, reject) {
+				// code, pending
+			})
+				.then(function () {
+					//code als het gelukt is, fullfilled
+				})
+				.catch(function () {
+					//code als het mislukt is, rejected
+				})
+				.finally(function () {
+					//code als de actie afgelopen is, settled
+				});
+			// Einde voorbeel template
+
+			let promise = new Promise(function (resolve, reject) {
+				console.log("Pending");
+				let naam1 = prompt("Geef de naam");
+				if (naam1 === "jan") {
+					resolve(); //then wordt uitgevoerd
+				} else {
+					reject(); //catch wordt uitgevoerd
+				}
+			})
+				.then(function () {
+					console.log("Succes!");
+				})
+				.catch(function () {
+					console.log("Mislukt!");
+				})
+				.finally(function () {
+					console.log("afgelopen");
+				});
+		</script>
+	</body>
+</html>

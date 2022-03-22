@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Promises opdracht</title>
+	</head>
+	<body>
+		<p>Selecteer een knop om de video in te lezen</p>
+		<p id="error"></p>
+		<div id="buttonsDiv">
+			<button>Video 1</button>
+			<button>Video 2</button>
+		</div>
+		<h2 id="titel"></h2>
+		<iframe
+			id="youtube"
+			width="560"
+			height="315"
+			src=""
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		></iframe>
+		<div id="lyrics"></div>
+
+		<script>
+			let pError;
+			let youtube;
+			let lyrics;
+			let h2Title;
+			let jsonData;
+			let selectedButton;
+
+			window.addEventListener("DOMContentLoaded", function () {
+				pError = document.getElementById("error");
+				youtube = document.getElementById("youtube");
+				lyrics = document.getElementById("lyrics");
+				h2Title = document.getElementById("titel");
+				let buttonsDiv = document.getElementById("buttonsDiv");
+			});
+
+			buttonsDiv.addEventListener("click", function (e) {
+				selectedButton = Array.from(e.target.parentNode.children).indexOf(e.target);
+				setVideoAndLyrics();
+			});
+
+			fetch("promises.json")
+				.then((response) => response.json())
+				.then((data) => {
+					jsonData = data;
+					console.log(jsonData);
+				})
+				.catch((error) => {
+					pError.innerHTML = "Sorry, de video's kunnen niet ingelezen worden. Probeer later opnieuw.<br>" + error;
+				});
+
+			function setVideoAndLyrics() {
+				if (jsonData) {
+					h2Title.innerHTML = jsonData.list[selectedButton].titel;
+					youtube.src = "https://www.youtube.com/embed/" + jsonData.list[selectedButton].youtubeUrl;
+					lyrics.innerHTML = jsonData.list[selectedButton].lyrics;
+				} else {
+					pError.innerHTML = "Sorry, de video's zijn nog niet ingelezen worden. Probeer later opnieuw.";
+				}
+			}
+		</script>
+	</body>
+</html>

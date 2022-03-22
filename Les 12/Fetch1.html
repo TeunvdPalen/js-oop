@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fetch1</title>
+	</head>
+	<body>
+		<script>
+			fetch("users.json")
+				.then((response) => response.json())
+				.then((data) => {
+					console.log(data);
+					toonUsers(data);
+				})
+				.catch((error) => {
+					console.log("Something went wrong!", error);
+				});
+
+			function toonUsers(users) {
+				let userArray = users.people;
+				let lengte = userArray.length;
+				for (i = 0; i < lengte; i++) {
+					document.write(
+						`<h2>Persoon ${i + 1}</h2>
+						<p>Voornaam:${userArray[i].firstname}</p>
+						<p>Achternaam:${userArray[i].lastname}</p>
+						<p>Email:${userArray[i].email}</p> `
+					);
+				}
+			}
+		</script>
+	</body>
+</html>
