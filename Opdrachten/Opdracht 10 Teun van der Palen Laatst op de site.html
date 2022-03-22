@@ -10,6 +10,19 @@
 		<div id="weergave"></div>
 
 		<button id="btnVerwijderMij">Verwijder mij</button>
-		<script></script>
+		<script>
+			if (!localStorage.laatstOpDeSite) {
+				document.getElementById("weergave").innerHTML = "Dit is de eerste keer dat je op deze site komt.";
+				localStorage.laatstOpDeSite = new Date();
+			} else if (localStorage.laatstOpDeSite) {
+				document.getElementById("weergave").innerHTML = "Je was hier de laatste keer op: " + localStorage.laatstOpDeSite;
+				localStorage.laatstOpDeSite = new Date();
+			}
+
+			document.getElementById("btnVerwijderMij").addEventListener("click", function () {
+				localStorage.removeItem("laatstOpDeSite");
+				location.reload();
+			});
+		</script>
 	</body>
 </html>

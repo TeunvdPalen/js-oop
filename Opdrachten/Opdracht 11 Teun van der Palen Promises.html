@@ -26,20 +26,14 @@
 		<div id="lyrics"></div>
 
 		<script>
-			let pError;
-			let youtube;
-			let lyrics;
-			let h2Title;
+			let pError = document.getElementById("error");
+			let youtube = document.getElementById("youtube");
+			let lyrics = document.getElementById("lyrics");
+			let h2Title = document.getElementById("titel");
+			let buttonsDiv = document.getElementById("buttonsDiv");
+
 			let jsonData;
 			let selectedButton;
-
-			window.addEventListener("DOMContentLoaded", function () {
-				pError = document.getElementById("error");
-				youtube = document.getElementById("youtube");
-				lyrics = document.getElementById("lyrics");
-				h2Title = document.getElementById("titel");
-				let buttonsDiv = document.getElementById("buttonsDiv");
-			});
 
 			buttonsDiv.addEventListener("click", function (e) {
 				selectedButton = Array.from(e.target.parentNode.children).indexOf(e.target);
