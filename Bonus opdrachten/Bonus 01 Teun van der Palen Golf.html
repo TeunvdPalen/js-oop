@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Golf</title>
-	</head>
-	<body>
-		<script>
-			let alleResultaten = [];
 
-			function Resultaat(golfbaan, datum, hole, par, strokes) {
-				this.golfbaanWaarde = golfbaan;
-				this.datumWaarde = datum;
-				this.holeWaarde = hole;
-				this.parWaarde = par;
-				this.strokesWaarde = strokes;
-				this.setScore = function (toon1) {
-					if (strokes == 1) {
-						toon1.value = "Hole in one!!!";
-					} else if (strokes <= par - 2) {
-						toon1.value = "Eagle!!";
-					} else if (strokes <= par - 1) {
-						toon1.value = "Birdie!";
-					} else if (strokes == par) {
-						toon1.value = "Par";
-					} else if (strokes == par + 1) {
-						toon1.value = "Bogey";
-					} else if (strokes == par + 2) {
-						toon1.value = "Double Bogey";
-					} else if (strokes >= par + 2) {
-						toon1.value = "No score";
-					}
-				};
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Golf</title>
+</head>
+
+<body>
+	<script>
+		let alleResultaten = [];
+
+		function Resultaat(golfbaan, datum, hole, par, strokes) {
+			this.golfbaanWaarde = golfbaan;
+			this.datumWaarde = datum;
+			this.holeWaarde = hole;
+			this.parWaarde = par;
+			this.strokesWaarde = strokes;
+			this.setScore = function () {
+				if (strokes == 1) {
+					this.score = "Hole in one!!!";
+				} else if (strokes <= par - 2) {
+					this.score = "Eagle!!";
+				} else if (strokes <= par - 1) {
+					this.score = "Birdie!";
+				} else if (strokes == par) {
+					this.score = "Par";
+				} else if (strokes == par + 1) {
+					this.score = "Bogey";
+				} else if (strokes == par + 2) {
+					this.score = "Double Bogey";
+				} else if (strokes >= par + 3) {
+					this.score = "No score";
+				}
+			};
+			this.save = function (e) {
+				alleResultaten.push(e)
 			}
-		</script>
-	</body>
+		}
+
+		function instantie(golfbaan, datum, hole, par, strokes) {
+			let instantie = new Resultaat(golfbaan, datum, hole, par, strokes)
+			instantie.setScore()
+			instantie.save(instantie)
+		}
+
+		instantie("Groene Weide", "01/01/2020", 1, 10, 13)
+		instantie("Groene Weide", "01/01/2020", 2, 12, 12)
+		instantie("Konings Hooi", "08/01/2020", 3, 12, 1)
+
+		function show() {
+			document.write('<h1>Resultaat:</h1>');
+			alleResultaten.forEach(e => {
+				document.write(
+					'<div><p>Golfbaan:' + e.golfbaanWaarde + '</p><p>Datum:' + e.datumWaarde + '</p><p>Hole:' + e.holeWaarde + ' </p><p>Par: ' + e.parWaarde + ' </p><p>Strokes:' + e.strokesWaarde + ' </p><p>Score: ' + e.score + ' </p></div><hr/>'
+				);
+			});
+		}
+		show()
+	</script>
+</body>
+
 </html>
